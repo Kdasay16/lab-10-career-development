@@ -37,3 +37,17 @@ SLL.prototype.append = function(value) {
     _setLastNode(node.next);
   }
 };
+
+SLL.prototype.remove = function(node) {
+  node = node.next;
+  return node;
+};
+
+SLL.prototype.reverse = function() {
+  let newSLL = new SLL();
+  while (this.head) {
+    newSLL.prepend(this.head.val);
+    this.head = this.remove(this.head);
+  }
+  return newSLL;
+};
